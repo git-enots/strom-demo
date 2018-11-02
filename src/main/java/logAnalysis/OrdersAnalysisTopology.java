@@ -2,18 +2,19 @@ package logAnalysis;
 
 import java.util.UUID;
 
-import backtype.storm.Config;
-import backtype.storm.LocalCluster;
-import backtype.storm.StormSubmitter;
-import backtype.storm.generated.AlreadyAliveException;
-import backtype.storm.generated.InvalidTopologyException;
-import backtype.storm.spout.SchemeAsMultiScheme;
-import backtype.storm.topology.TopologyBuilder;
-import storm.kafka.BrokerHosts;
-import storm.kafka.KafkaSpout;
-import storm.kafka.SpoutConfig;
-import storm.kafka.StringScheme;
-import storm.kafka.ZkHosts;
+import org.apache.storm.Config;
+import org.apache.storm.LocalCluster;
+import org.apache.storm.StormSubmitter;
+import org.apache.storm.generated.AlreadyAliveException;
+import org.apache.storm.generated.AuthorizationException;
+import org.apache.storm.generated.InvalidTopologyException;
+import org.apache.storm.spout.SchemeAsMultiScheme;
+import org.apache.storm.topology.TopologyBuilder;
+import org.apache.storm.kafka.BrokerHosts;
+import org.apache.storm.kafka.KafkaSpout;
+import org.apache.storm.kafka.SpoutConfig;
+import org.apache.storm.kafka.StringScheme;
+import org.apache.storm.kafka.ZkHosts;
 
 public class OrdersAnalysisTopology {
 	private static String topicName = "orderinfo";
@@ -38,7 +39,13 @@ public class OrdersAnalysisTopology {
 		if(args != null && args.length > 0) {
 			conf.setNumWorkers(1);
 			try {
-				StormSubmitter.submitTopologyWithProgressBar(args[0], conf, builder.createTopology());
+				
+					StormSubmitter.submitTopologyWithProgressBar(args[0], conf, builder.createTopology());
+			} 
+			catch (AuthorizationException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				
 			} catch (AlreadyAliveException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

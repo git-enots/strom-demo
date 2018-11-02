@@ -1,13 +1,13 @@
 package trident;
 
 
-import backtype.storm.Config;
-import backtype.storm.LocalCluster;
-import backtype.storm.generated.StormTopology;
-import backtype.storm.tuple.Fields;
-import storm.trident.Stream;
-import storm.trident.TridentTopology;
-import storm.trident.operation.builtin.Count;
+import org.apache.storm.Config;
+import org.apache.storm.LocalCluster;
+import org.apache.storm.generated.StormTopology;
+import org.apache.storm.tuple.Fields;
+import org.apache.storm.trident.Stream;
+import org.apache.storm.trident.TridentTopology;
+import org.apache.storm.trident.operation.builtin.Count;
 
 public class OutbreakDetectionTopology {
 	public static StormTopology buildTopology() {

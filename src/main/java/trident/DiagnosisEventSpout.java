@@ -1,9 +1,9 @@
 package trident;
 import java.util.Map;
 
-import backtype.storm.task.TopologyContext;
-import backtype.storm.tuple.Fields;
-import storm.trident.spout.ITridentSpout;
+import org.apache.storm.task.TopologyContext;
+import org.apache.storm.tuple.Fields;
+import org.apache.storm.trident.spout.ITridentSpout;
 @SuppressWarnings("rawtypes")
 public class DiagnosisEventSpout implements ITridentSpout<Long> {
     private static final long serialVersionUID = 1L;

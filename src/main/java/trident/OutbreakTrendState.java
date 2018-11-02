@@ -1,5 +1,5 @@
 package trident;
-import storm.trident.state.map.NonTransactionalMap;
+import org.apache.storm.trident.state.map.NonTransactionalMap;
 
 public class OutbreakTrendState extends NonTransactionalMap<Long> {
     protected OutbreakTrendState(OutbreakTrendBackingMap outbreakBackingMap) {

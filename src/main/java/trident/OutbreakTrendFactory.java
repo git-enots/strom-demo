@@ -1,9 +1,9 @@
 package trident;
 import java.util.Map;
 
-import backtype.storm.task.IMetricsContext;
-import storm.trident.state.State;
-import storm.trident.state.StateFactory;
+import org.apache.storm.task.IMetricsContext;
+import org.apache.storm.trident.state.State;
+import org.apache.storm.trident.state.StateFactory;
  
 @SuppressWarnings("rawtypes")
 public class OutbreakTrendFactory implements StateFactory {
